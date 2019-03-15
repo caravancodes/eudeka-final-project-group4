@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.activities.CatActivity"></activity>
+        <activity android:name=".views.activities.FavoriteCatDetailActivity"></activity>
+        <activity android:name=".views.activities.BreedDetailActivity" />
+        <activity android:name=".views.activities.CatActivity" />
         <activity android:name=".views.activities.CatDetailActivity" />
         <activity android:name=".views.activities.MainActivity">
             <intent-filter>
