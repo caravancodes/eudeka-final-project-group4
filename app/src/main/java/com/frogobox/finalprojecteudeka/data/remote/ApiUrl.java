@@ -1,10 +1,5 @@
 package com.frogobox.finalprojecteudeka.data.remote;
 
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.frogobox.finalprojecteudeka.data.remote.ApiUrl.ListApiUrl.BASE_URL;
-
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -22,21 +17,17 @@ import static com.frogobox.finalprojecteudeka.data.remote.ApiUrl.ListApiUrl.BASE
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class ApiClient {
+public class ApiUrl {
 
-    private static Retrofit retrofit;
-
-    public static Retrofit getApiClient() {
-
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-
-        return retrofit;
-
+    public ApiUrl() {
     }
 
+    public static final class ListApiUrl {
+
+        public static final String BASE_URL = "https://api.thecatapi.com/";
+        public static final String PREFIX = "v1/";
+
+//        public static final String URL_LONG = "https://api.thecatapi.com/v1/breeds";
+
+    }
 }
