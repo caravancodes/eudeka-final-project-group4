@@ -1,7 +1,9 @@
-package com.frogobox.finalprojecteudeka;
+package com.frogobox.finalprojecteudeka.views.activities;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.frogobox.finalprojecteudeka.R;
 
 public class MainActivity extends AppCompatActivity {
 

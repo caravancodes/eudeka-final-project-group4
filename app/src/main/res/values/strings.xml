@@ -1,3 +1,8 @@
 <resources>
+    <!--Penamaan String : {tipe}_{nama string}-->
+
+    <!--Contoh : hint_username-->
+    <!--Contoh : text_nama-->
+
     <string name="app_name">FinalProjectEudeka</string>
 </resources>
