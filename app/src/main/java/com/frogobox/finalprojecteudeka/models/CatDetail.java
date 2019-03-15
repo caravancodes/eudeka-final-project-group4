@@ -1,5 +1,7 @@
 package com.frogobox.finalprojecteudeka.models;
 
+import java.util.List;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -18,4 +20,7 @@ package com.frogobox.finalprojecteudeka.models;
  * id.amirisback.frogobox
  */
 public class CatDetail {
+    public List<Cat> breeds;
+    public String id;
+    public String url;
 }
