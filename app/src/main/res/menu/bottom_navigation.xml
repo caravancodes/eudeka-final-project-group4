@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_cat"
+        android:title="@string/title_breed" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/title_favorite" />
+</menu>
