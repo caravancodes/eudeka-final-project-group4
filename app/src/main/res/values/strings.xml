@@ -10,4 +10,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_cat">Cat</string>
     <string name="title_favorite">Favorite</string>
+
+    <string name="placeholder_catbreed">Abyssinian</string>
+    <string name="placeholder_catorigin">Egypt</string>
+    <string name="placeholder_catdescription">
+        The Abyssinian is easy to care for, and a joy to have in your home.
+        They’re affectionate cats and love both people and other animals.</string>
 </resources>

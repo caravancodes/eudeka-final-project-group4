@@ -31,4 +31,8 @@
     <!--Contoh : act_main_edittext_username-->
     <!--Contoh : frg_cat_detail_textview_nama-->
 
+    <item name="ctn_item_list_favorite_circleimageview_catimage" type="id" />
+    <item name="ctn_item_list_favorite_textview_catbreed" type="id" />
+    <item name="ctn_item_list_favorite_textview_catorigin" type="id" />
+    <item name="ctn_item_list_favorite_textview_catdescription" type="id" />
 </resources>
