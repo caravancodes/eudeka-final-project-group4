@@ -14,10 +14,10 @@ import com.frogobox.finalprojecteudeka.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BreedFragment extends Fragment {
+public class CatFragment extends Fragment {
 
 
-    public BreedFragment() {
+    public CatFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class BreedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_breed, container, false);
+        return inflater.inflate(R.layout.fragment_cat, container, false);
     }
 
 }

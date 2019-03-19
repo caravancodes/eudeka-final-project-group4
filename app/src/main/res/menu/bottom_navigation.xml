@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_cat"
-        android:title="@string/title_breed" />
+        android:title="@string/title_cat" />
 
     <item
         android:id="@+id/navigation_add"
