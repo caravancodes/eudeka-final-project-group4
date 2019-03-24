@@ -1,5 +1,9 @@
 package com.frogobox.finalprojecteudeka.data;
 
+import com.frogobox.finalprojecteudeka.models.Cat;
+
+import java.util.List;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,5 +21,14 @@ package com.frogobox.finalprojecteudeka.data;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class CatDataSource {
+public interface CatDataSource {
+
+    void getListOfCats(CatsGetCallback callback);
+
+    interface CatsGetCallback {
+
+        void onCatDataLoaded(List<Cat> data);
+
+        void onDataNotAvailable(String errorMessage);
+    }
 }
