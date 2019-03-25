@@ -1,5 +1,15 @@
 package com.frogobox.finalprojecteudeka.data.remote;
 
+import com.frogobox.finalprojecteudeka.data.CatDataSource;
+import com.frogobox.finalprojecteudeka.models.Cat;
+
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,5 +27,23 @@ package com.frogobox.finalprojecteudeka.data.remote;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class CatRemoteDataSource {
+public class CatRemoteDataSource implements CatDataSource {
+
+    private ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+    @Override
+    public void getListOfCats(final CatsGetCallback callback) {
+        Call<List<Cat>> call = apiInterface.getCats("", "", "");
+        call.enqueue(new Callback<List<Cat>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Cat>> call, @NonNull Response<List<Cat>> response) {
+                callback.onCatDataLoaded(response.body());
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Cat>> call, @NonNull Throwable t) {
+                callback.onDataNotAvailable(t.getMessage());
+            }
+        });
+    }
 }

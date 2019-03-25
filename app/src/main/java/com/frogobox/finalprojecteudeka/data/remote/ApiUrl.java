@@ -22,10 +22,10 @@ public class ApiUrl {
     public ApiUrl() {
     }
 
-    public static final class ListApiUrl {
+    static final class ListApiUrl {
 
-        public static final String BASE_URL = "https://api.thecatapi.com/";
-        public static final String PREFIX = "v1/";
+        static final String BASE_URL = "https://api.thecatapi.com/";
+        static final String PREFIX = "v1/";
 
 //        public static final String URL_LONG = "https://api.thecatapi.com/v1/breeds";
 
