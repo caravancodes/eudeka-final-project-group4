@@ -2,7 +2,11 @@ package com.frogobox.finalprojecteudeka.data.local;
 
 import android.content.Context;
 
+<<<<<<< HEAD
 import com.frogobox.finalprojecteudeka.models.CatDetail;
+=======
+import com.frogobox.finalprojecteudeka.models.Cat;
+>>>>>>> 52cf490fd74f6512328b742df1e3e5d24f22b222
 
 import androidx.room.Database;
 import androidx.room.Room;
