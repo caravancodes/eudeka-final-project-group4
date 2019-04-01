@@ -32,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     openFragment(new CatFragment());
+                    setTitle(getString(R.string.app_name));
                     return true;
                 case R.id.navigation_add:
                     openFragment(new FavoriteCatFragment());
+                    setTitle(getString(R.string.title_favorite));
                     return true;
             }
             return false;

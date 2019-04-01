@@ -4,6 +4,7 @@ import android.content.Context;
 
 
 import com.frogobox.finalprojecteudeka.model.Cat;
+import com.frogobox.finalprojecteudeka.model.Favorite;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -27,11 +28,12 @@ import androidx.room.RoomDatabase;
  * id.amirisback.frogobox
  */
 
-@Database(entities = {Cat.class}, version = 1)
+@Database(entities = {Cat.class, Favorite.class}, version = 1)
 public abstract class CatDB extends RoomDatabase {
 
     private static CatDB INSTANCE;
     public abstract CatDao catDao();
+    public abstract FavoriteDao favoriteDao();
     private static final Object syncLock = new Object();
 
     public static CatDB getInstance(Context context) {

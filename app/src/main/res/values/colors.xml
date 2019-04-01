@@ -8,6 +8,13 @@
     <color name="colorPrimary">#720d5d</color>
     <color name="colorPrimaryDark">#430033</color>
     <color name="colorAccent">#FF9800</color>
-    <color name="colorBackground">#D6D6D6</color>
+    <color name="colorBackground">#e9e7e7</color>
 
+    <color name="colorSelectedItem">#FFFFFF</color>
+    <color name="colorSelectedText">#FFFFFF</color>
+    <color name="colorTextPrimary">#000000</color>
+    <color name="colorTextWhite">#FFFFFF</color>
+
+    <color name="BottomNavigation">#FFFFFF</color>
+    <color name="colorBackgroundText">#A6000000</color>
 </resources>

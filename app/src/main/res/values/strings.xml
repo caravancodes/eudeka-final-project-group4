@@ -21,8 +21,8 @@
     <string name="button_cari">Search</string>
 
     <string name="view_overview">Overview</string>
-    <string name="view_rating">Rating</string>
-    <string name="view_popularity">Popularity</string>
+    <string name="view_rating">Intelligence</string>
+    <string name="view_popularity">Affection Level</string>
 
     <string name="title_nowplaying">Now Playing</string>
     <string name="title_upcoming">Up Coming</string>

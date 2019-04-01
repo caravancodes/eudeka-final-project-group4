@@ -38,7 +38,6 @@ public class CatFragment extends Fragment implements CatNavigator {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,26 +49,15 @@ public class CatFragment extends Fragment implements CatNavigator {
         catViewModel = new CatViewModel(Injection.provideTeamRepository(getContext()), this);
         catViewModel.getListCat();
 
-//        arrayCat.add(new Cat(1,"asda","asdas", "sadas", 1,3,4));
-//        arrayCat.add(new Cat(1,"asda","asdas", "sadas", 1,3,4));
-//        arrayCat.add(new Cat(1,"asda","asdas", "sadas", 1,3,4));
-//        arrayCat.add(new Cat(1,"asda","asdas", "sadas", 1,3,4));
-//
-//        adapter.addItem(arrayCat);
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-////        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-//        recyclerView.setAdapter(adapter);
-
         return rootView;
     }
 
     @Override
     public void loadCatList(List<Cat> listCat) {
+
         arrayCat.clear();
         arrayCat.addAll(listCat);
         adapter.addItem(arrayCat);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         recyclerView.setAdapter(adapter);
     }

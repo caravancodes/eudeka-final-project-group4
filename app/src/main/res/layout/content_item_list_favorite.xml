@@ -23,21 +23,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dimens_medium"
+    android:layout_marginTop="@dimen/dimens_medium"
+    android:layout_marginStart="@dimen/dimens_medium"
+    android:layout_marginEnd="@dimen/dimens_medium"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimens_medium"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
             android:layout_marginEnd="@dimen/dimens_big"
-            android:src="@color/colorPrimary" />
+            android:src="@drawable/ic_kucing_image" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,22 +47,24 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/name_cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 tools:text="@string/placeholder_catbreed" />
 
             <TextView
+                android:id="@+id/origin_cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
                 tools:text="@string/placeholder_catorigin" />
 
             <TextView
+                android:id="@+id/des_cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimens_medium"
-                android:maxLines="2"
+                android:maxLines="1"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                 tools:text="@string/placeholder_catdescription" />
         </LinearLayout>

@@ -34,9 +34,10 @@
         android:layout_margin="@dimen/dimens_small">
 
         <ImageView
+            android:src="@drawable/ic_kucing_image"
             android:id="@+id/image_cat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:scaleType="fitXY" />
 
         <TextView
