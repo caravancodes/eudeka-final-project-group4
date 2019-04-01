@@ -3,8 +3,6 @@ package com.frogobox.finalprojecteudeka.data.remote;
 import com.frogobox.finalprojecteudeka.models.Cat;
 import com.frogobox.finalprojecteudeka.models.Favorite;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -29,14 +27,14 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     @GET(ApiUrl.ListApiUrl.PREFIX + "breeds")
-    Call<List<Cat>> getCats(
+    Call<Cat> getCats(
         @Query("attach_breed") String attachBreed,
         @Query("page") String page,
         @Query("limit") String limit
     );
 
     @GET(ApiUrl.ListApiUrl.PREFIX + "favourites")
-    Call<List<Favorite>> getFavourites(
+    Call<Favorite> getFavourites(
         @Query("sub_id") String ib,
         @Query("limit") String limit,
         @Query("page") String page

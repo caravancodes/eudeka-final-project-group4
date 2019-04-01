@@ -1,6 +1,5 @@
 package com.frogobox.finalprojecteudeka.data.local;
 
-import com.frogobox.finalprojecteudeka.models.Cat;
 import com.frogobox.finalprojecteudeka.models.CatDetail;
 
 import java.util.List;
@@ -29,8 +28,8 @@ import androidx.room.Query;
 @Dao
 public interface CatDao {
     @Query("SELECT * FROM cat")
-    List<Cat> getCats();
+    List<CatDetail> getCats();
 
     @Insert
-    void insertCatData(List<Cat> data);
+    void insertCatData(List<CatDetail> data);
 }
