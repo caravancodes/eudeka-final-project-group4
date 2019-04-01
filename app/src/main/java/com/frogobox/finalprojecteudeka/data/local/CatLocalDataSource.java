@@ -3,8 +3,7 @@ package com.frogobox.finalprojecteudeka.data.local;
 import android.content.Context;
 
 import com.frogobox.finalprojecteudeka.data.CatDataSource;
-import com.frogobox.finalprojecteudeka.models.CatDetail;
-import com.frogobox.finalprojecteudeka.models.Cat;
+import com.frogobox.finalprojecteudeka.model.Cat;
 
 import java.util.List;
 
@@ -40,12 +39,11 @@ public class CatLocalDataSource implements CatDataSource {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                List<CatDetail> listCat = catDao.getCats();
+                List<Cat> listCat = catDao.getCats();
                 if (listCat.isEmpty()) {
                     callback.onDataNotAvailable("Data kucing di database kosong");
                 } else {
-                    Cat catData = new Cat(listCat);
-                    callback.onCatDataLoaded(catData);
+                    callback.onCatDataLoaded(listCat);
                 }
             }
         };
@@ -53,7 +51,7 @@ public class CatLocalDataSource implements CatDataSource {
         new Thread(runnable).start();
     }
 
-    public void saveCatData(final List<CatDetail> data) {
+    public void saveCatData(final List<Cat> data) {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

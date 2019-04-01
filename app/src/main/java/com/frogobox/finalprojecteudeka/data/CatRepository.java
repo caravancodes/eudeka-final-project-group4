@@ -2,16 +2,16 @@ package com.frogobox.finalprojecteudeka.data;
 
 import com.frogobox.finalprojecteudeka.data.local.CatLocalDataSource;
 import com.frogobox.finalprojecteudeka.data.remote.CatRemoteDataSource;
-import com.frogobox.finalprojecteudeka.models.Cat;
+import com.frogobox.finalprojecteudeka.model.Cat;
 
-import androidx.annotation.Nullable;
+import java.util.List;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * FinalProjectEudeka
- * Copyright (C) 15/03/2019.
+ * Eudeka-Kel4-FinalProject
+ * Copyright (C) 02/04/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -25,38 +25,21 @@ import androidx.annotation.Nullable;
  */
 public class CatRepository implements CatDataSource {
 
-    private CatRemoteDataSource catRemoteData;
-    private CatLocalDataSource catLocalData;
+    private CatLocalDataSource catLocalDataSource;
+    private CatRemoteDataSource catRemoteDataSource;
 
-    public CatRepository(CatRemoteDataSource catRemoteData, CatLocalDataSource catLocalData) {
-        this.catRemoteData = catRemoteData;
-        this.catLocalData = catLocalData;
+    public CatRepository(CatLocalDataSource catLocalDataSource, CatRemoteDataSource catRemoteDataSource) {
+        this.catLocalDataSource = catLocalDataSource;
+        this.catRemoteDataSource = catRemoteDataSource;
     }
 
-    @Override
-    public void getListOfCats(final CatsGetCallback callback) {
-        catLocalData.getListOfCats(new CatsGetCallback() {
+    public void getCatFromRemote(final CatsGetCallback callback) {
+
+        catRemoteDataSource.getListOfCats(new CatsGetCallback() {
             @Override
-            public void onCatDataLoaded(Cat data) {
+            public void onCatDataLoaded(List<Cat> data) {
+                catLocalDataSource.saveCatData(data);
                 callback.onCatDataLoaded(data);
-            }
-
-            @Override
-            public void onDataNotAvailable(String errorMessage) {
-                getCatsFromRemoteData(callback);
-            }
-        });
-    }
-
-    private void getCatsFromRemoteData(@Nullable final CatsGetCallback callback) {
-        catRemoteData.getListOfCats(new CatsGetCallback() {
-
-            @Override
-            public void onCatDataLoaded(Cat data) {
-                catLocalData.saveCatData(data.getCats());
-
-                callback.onCatDataLoaded(data);
-
             }
 
             @Override
@@ -64,5 +47,23 @@ public class CatRepository implements CatDataSource {
                 callback.onDataNotAvailable(errorMessage);
             }
         });
+
+    }
+
+    @Override
+    public void getListOfCats(final CatsGetCallback callback) {
+
+        catLocalDataSource.getListOfCats(new CatsGetCallback() {
+            @Override
+            public void onCatDataLoaded(List<Cat> data) {
+                callback.onCatDataLoaded(data);
+            }
+
+            @Override
+            public void onDataNotAvailable(String errorMessage) {
+                getCatFromRemote(callback);
+            }
+        });
+
     }
 }

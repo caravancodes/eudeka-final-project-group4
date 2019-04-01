@@ -4,7 +4,7 @@
     <!--Contoh : hint_username-->
     <!--Contoh : text_nama-->
 
-    <string name="app_name">FinalProjectEudeka</string>
+    <string name="app_name">Cats App</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -16,4 +16,41 @@
     <string name="placeholder_catdescription">
         The Abyssinian is easy to care for, and a joy to have in your home.
         They’re affectionate cats and love both people and other animals.</string>
+
+    <string name="edit_text_cari">Movie Name</string>
+    <string name="button_cari">Search</string>
+
+    <string name="view_overview">Overview</string>
+    <string name="view_rating">Rating</string>
+    <string name="view_popularity">Popularity</string>
+
+    <string name="title_nowplaying">Now Playing</string>
+    <string name="title_upcoming">Up Coming</string>
+    <string name="title_search">Search</string>
+    <string name="title_detail">Detail Movies</string>
+
+
+    <string name="dummy_string">dummy</string>
+
+    <string name="title_settings">Setting</string>
+    <string name="title_fav">Favorite</string>
+    <string name="title_view_list">View</string>
+
+    <string name="toast_add">Added successfully</string>
+    <string name="toast_add_fail">Added failed</string>
+    <string name="toast_remove">Successfully deleted</string>
+    <string name="toast_remove_fail">Failed deleted</string>
+
+    <string name="toast_no_internet">No Internet Connection</string>
+    <string name="toast_fail_network">Fail Reload Network</string>
+
+    <string name="view_empty_data">Empty data</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="notification_daily_reminder_title">Catalogue Movie</string>
+    <string name="notification_daily_reminder_text">Check CatalogueMovie Now!</string>
+    <string name="title_notif">Notification</string>
+    <string name="notification_on">Notification On</string>
+    <string name="notification_off">Notification Off</string>
+
 </resources>

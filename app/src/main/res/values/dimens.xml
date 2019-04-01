@@ -27,14 +27,14 @@
 
     <!--Dimens-->
 
-    <dimen name="dimen_big_ultra">32dp</dimen>
-    <dimen name="dimen_big_super">24dp</dimen>
-    <dimen name="dimen_big">16dp</dimen>
-    <dimen name="dimen_medium">8dp</dimen>
-    <dimen name="dimen_small">4dp</dimen>
+    <dimen name="dimens_big">16dp</dimen>
+    <dimen name="dimens_medium">8dp</dimen>
+    <dimen name="dimens_small">4dp</dimen>
+    <dimen name="dimens_weight">0dp</dimen>
 
-    <dimen name="dimen_view_line">1dp</dimen>
-    <dimen name="dimen_weight">0dp</dimen>
+    <dimen name="dimens_font_big">25sp</dimen>
+    <dimen name="dimens_font_medium">12sp</dimen>
+    <dimen name="dimens_font_medium_title">16sp</dimen>
 
 
 </resources>

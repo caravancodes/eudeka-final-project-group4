@@ -1,12 +1,12 @@
 package com.frogobox.finalprojecteudeka.data.remote;
 
 import com.frogobox.finalprojecteudeka.data.CatDataSource;
-import com.frogobox.finalprojecteudeka.models.Cat;
-import com.frogobox.finalprojecteudeka.models.CatDetail;
+import com.frogobox.finalprojecteudeka.model.Cat;
+import com.frogobox.finalprojecteudeka.network.bridge.ApiClient;
+import com.frogobox.finalprojecteudeka.network.api.ApiInterface;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,8 +15,8 @@ import retrofit2.Response;
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * FinalProjectEudeka
- * Copyright (C) 15/03/2019.
+ * Eudeka-Kel4-FinalProject
+ * Copyright (C) 02/04/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -34,17 +34,18 @@ public class CatRemoteDataSource implements CatDataSource {
 
     @Override
     public void getListOfCats(final CatsGetCallback callback) {
-        Call<Cat> call = apiInterface.getCats("", "", "");
-        call.enqueue(new Callback<List<CatDetail>>() {
+        Call<List<Cat>> call = apiInterface.getCats(3,3,10);
+        call.enqueue(new Callback<List<Cat>>() {
             @Override
-            public void onResponse(@NonNull Call<List<CatDetail>> call, @NonNull Response<List<CatDetail>> response) {
+            public void onResponse(Call<List<Cat>> call, Response<List<Cat>> response) {
                 callback.onCatDataLoaded(response.body());
             }
 
             @Override
-            public void onFailure(@NonNull Call<List<CatDetail>> call, @NonNull Throwable t) {
-                callback.onDataNotAvailable(t.getMessage());
+            public void onFailure(Call<List<Cat>> call, Throwable t) {
+                callback.onDataNotAvailable(t.toString());
             }
         });
+
     }
 }

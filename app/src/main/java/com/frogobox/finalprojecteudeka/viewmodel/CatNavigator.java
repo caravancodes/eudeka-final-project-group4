@@ -1,11 +1,15 @@
-package com.frogobox.finalprojecteudeka.data.local;
+package com.frogobox.finalprojecteudeka.viewmodel;
+
+import com.frogobox.finalprojecteudeka.model.Cat;
+
+import java.util.List;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * FinalProjectEudeka
- * Copyright (C) 15/03/2019.
+ * Eudeka-Kel4-FinalProject
+ * Copyright (C) 02/04/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,5 +21,9 @@ package com.frogobox.finalprojecteudeka.data.local;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class FavoriteDataBase {
+public interface CatNavigator {
+
+    void loadCatList(List<Cat> listCat);
+    void errorLoadListCat(String message);
+
 }

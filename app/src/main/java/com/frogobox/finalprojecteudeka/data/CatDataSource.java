@@ -1,6 +1,8 @@
 package com.frogobox.finalprojecteudeka.data;
 
-import com.frogobox.finalprojecteudeka.models.Cat;
+import com.frogobox.finalprojecteudeka.model.Cat;
+
+import java.util.List;
 
 /**
  * Created by Faisal Amir
@@ -20,13 +22,10 @@ import com.frogobox.finalprojecteudeka.models.Cat;
  * id.amirisback.frogobox
  */
 public interface CatDataSource {
-
     void getListOfCats(CatsGetCallback callback);
 
     interface CatsGetCallback {
-
-        void onCatDataLoaded(Cat data);
-
+        void onCatDataLoaded(List<Cat> data);
         void onDataNotAvailable(String errorMessage);
     }
 }

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.frogobox.finalprojecteudeka.R;
+import com.frogobox.finalprojecteudeka.views.fragments.CatFragment;
+import com.frogobox.finalprojecteudeka.views.fragments.FavoriteCatFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        openFragment(new CatFragment());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -28,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //openFragment(new CatFragment);
+                    openFragment(new CatFragment());
                     return true;
                 case R.id.navigation_add:
-                    //openFragment(new FavoriteFragment);
+                    openFragment(new FavoriteCatFragment());
                     return true;
             }
             return false;

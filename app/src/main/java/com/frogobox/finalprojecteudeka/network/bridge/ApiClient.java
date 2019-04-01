@@ -1,9 +1,9 @@
-package com.frogobox.finalprojecteudeka.data.remote;
+package com.frogobox.finalprojecteudeka.network.bridge;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.frogobox.finalprojecteudeka.data.remote.ApiUrl.ListApiUrl.BASE_URL;
+import static com.frogobox.finalprojecteudeka.network.bridge.ApiUrl.ListApiUrl.BASE_URL;
 
 /**
  * Created by Faisal Amir

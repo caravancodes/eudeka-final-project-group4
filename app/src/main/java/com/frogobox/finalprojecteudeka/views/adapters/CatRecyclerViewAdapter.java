@@ -1,5 +1,22 @@
 package com.frogobox.finalprojecteudeka.views.adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.frogobox.finalprojecteudeka.R;
+import com.frogobox.finalprojecteudeka.model.Cat;
+import com.frogobox.finalprojecteudeka.views.activities.CatDetailActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,5 +34,64 @@ package com.frogobox.finalprojecteudeka.views.adapters;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class CatRecyclerViewAdapter {
+public class CatRecyclerViewAdapter extends RecyclerView.Adapter<CatRecyclerViewAdapter.ViewHolder> {
+
+    private Context context;
+    private ArrayList<Cat> data;
+
+    public CatRecyclerViewAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void addItem(ArrayList<Cat> data){
+        this.data = data;
+        notifyDataSetChanged();
+    }
+
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView catName, catOrigin, catDes;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            // -------------------------------------------------------------------------------------
+            catName = itemView.findViewById(R.id.name_cat);
+            catOrigin = itemView.findViewById(R.id.origin_cat);
+            catDes = itemView.findViewById(R.id.des_cat);
+            // -------------------------------------------------------------------------------------
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+
+        holder.catName.setText(data.get(position).getName());
+        holder.catOrigin.setText(data.get(position).getOrigin());
+        holder.catDes.setText(data.get(position).getDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentData = new Intent(context, CatDetailActivity.class);
+                Cat parcelCat = data.get(position);
+                intentData.putExtra(CatDetailActivity.EXTRA_CAT, parcelCat);
+                context.startActivity(intentData);
+            }
+        });
+
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item_list_cat, parent, false);
+        return new CatRecyclerViewAdapter.ViewHolder(v);
+    }
+
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
 }

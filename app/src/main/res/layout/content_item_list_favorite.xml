@@ -23,20 +23,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dimen_medium"
+    android:layout_margin="@dimen/dimens_medium"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_medium"
+        android:layout_margin="@dimen/dimens_medium"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimens_big"
             android:src="@color/colorPrimary" />
 
         <LinearLayout
@@ -59,10 +59,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimens_medium"
                 android:maxLines="2"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                 tools:text="@string/placeholder_catdescription" />
         </LinearLayout>
+
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

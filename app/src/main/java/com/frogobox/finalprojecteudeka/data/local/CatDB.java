@@ -2,11 +2,8 @@ package com.frogobox.finalprojecteudeka.data.local;
 
 import android.content.Context;
 
-<<<<<<< HEAD
-import com.frogobox.finalprojecteudeka.models.CatDetail;
-=======
-import com.frogobox.finalprojecteudeka.models.Cat;
->>>>>>> 52cf490fd74f6512328b742df1e3e5d24f22b222
+
+import com.frogobox.finalprojecteudeka.model.Cat;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -30,20 +27,18 @@ import androidx.room.RoomDatabase;
  * id.amirisback.frogobox
  */
 
-@Database(entities = {CatDetail.class}, version = 1)
+@Database(entities = {Cat.class}, version = 1)
 public abstract class CatDB extends RoomDatabase {
 
     private static CatDB INSTANCE;
-
     public abstract CatDao catDao();
-
     private static final Object syncLock = new Object();
 
     public static CatDB getInstance(Context context) {
         synchronized (syncLock) {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                    CatDB.class, "CatDetail.db")
+                    CatDB.class, "cat.db")
                     .build();
             }
 

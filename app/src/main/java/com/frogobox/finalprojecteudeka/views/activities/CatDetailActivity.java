@@ -8,6 +8,8 @@ import com.frogobox.finalprojecteudeka.R;
 
 public class CatDetailActivity extends AppCompatActivity {
 
+    public static final String EXTRA_CAT = "extra_cat";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
