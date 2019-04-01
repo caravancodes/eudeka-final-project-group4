@@ -1,5 +1,13 @@
 package com.frogobox.finalprojecteudeka.data.local;
 
+import android.content.Context;
+
+import com.frogobox.finalprojecteudeka.data.CatDataSource;
+import com.frogobox.finalprojecteudeka.models.CatDetail;
+import com.frogobox.finalprojecteudeka.models.Cat;
+
+import java.util.List;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,5 +25,42 @@ package com.frogobox.finalprojecteudeka.data.local;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class CatLocalDataSource {
+public class CatLocalDataSource implements CatDataSource {
+
+    private Context context;
+    private CatDao catDao;
+
+    public CatLocalDataSource(Context context) {
+        this.context = context;
+        catDao = CatDB.getInstance(context).catDao();
+    }
+
+    @Override
+    public void getListOfCats(final CatsGetCallback callback) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                List<CatDetail> listCat = catDao.getCats();
+                if (listCat.isEmpty()) {
+                    callback.onDataNotAvailable("Data kucing di database kosong");
+                } else {
+                    Cat catData = new Cat(listCat);
+                    callback.onCatDataLoaded(catData);
+                }
+            }
+        };
+
+        new Thread(runnable).start();
+    }
+
+    public void saveCatData(final List<CatDetail> data) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                catDao.insertCatData(data);
+            }
+        };
+
+        new Thread(runnable).start();
+    }
 }

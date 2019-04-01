@@ -4,8 +4,6 @@ import com.frogobox.finalprojecteudeka.data.local.CatLocalDataSource;
 import com.frogobox.finalprojecteudeka.data.remote.CatRemoteDataSource;
 import com.frogobox.finalprojecteudeka.models.Cat;
 
-import java.util.List;
-
 import androidx.annotation.Nullable;
 
 /**
@@ -36,17 +34,27 @@ public class CatRepository implements CatDataSource {
     }
 
     @Override
-    public void getListOfCats(CatsGetCallback callback) {
-        // TODO: implement local list of cats
+    public void getListOfCats(final CatsGetCallback callback) {
+        catLocalData.getListOfCats(new CatsGetCallback() {
+            @Override
+            public void onCatDataLoaded(Cat data) {
+                callback.onCatDataLoaded(data);
+            }
+
+            @Override
+            public void onDataNotAvailable(String errorMessage) {
+                getCatsFromRemoteData(callback);
+            }
+        });
     }
 
     private void getCatsFromRemoteData(@Nullable final CatsGetCallback callback) {
         catRemoteData.getListOfCats(new CatsGetCallback() {
 
             @Override
-            public void onCatDataLoaded(List<Cat> data) {
-                // TODO: insert to local database
-//                catLocalData.saveCatData(data.getCats());
+            public void onCatDataLoaded(Cat data) {
+                catLocalData.saveCatData(data.getCats());
+
                 callback.onCatDataLoaded(data);
 
             }

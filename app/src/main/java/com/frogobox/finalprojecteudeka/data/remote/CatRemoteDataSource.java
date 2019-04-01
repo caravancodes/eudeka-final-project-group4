@@ -2,6 +2,7 @@ package com.frogobox.finalprojecteudeka.data.remote;
 
 import com.frogobox.finalprojecteudeka.data.CatDataSource;
 import com.frogobox.finalprojecteudeka.models.Cat;
+import com.frogobox.finalprojecteudeka.models.CatDetail;
 
 import java.util.List;
 
@@ -33,15 +34,15 @@ public class CatRemoteDataSource implements CatDataSource {
 
     @Override
     public void getListOfCats(final CatsGetCallback callback) {
-        Call<List<Cat>> call = apiInterface.getCats("", "", "");
-        call.enqueue(new Callback<List<Cat>>() {
+        Call<Cat> call = apiInterface.getCats("", "", "");
+        call.enqueue(new Callback<List<CatDetail>>() {
             @Override
-            public void onResponse(@NonNull Call<List<Cat>> call, @NonNull Response<List<Cat>> response) {
+            public void onResponse(@NonNull Call<List<CatDetail>> call, @NonNull Response<List<CatDetail>> response) {
                 callback.onCatDataLoaded(response.body());
             }
 
             @Override
-            public void onFailure(@NonNull Call<List<Cat>> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<List<CatDetail>> call, @NonNull Throwable t) {
                 callback.onDataNotAvailable(t.getMessage());
             }
         });

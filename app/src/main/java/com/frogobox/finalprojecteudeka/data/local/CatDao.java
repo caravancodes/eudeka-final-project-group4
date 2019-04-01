@@ -1,5 +1,13 @@
 package com.frogobox.finalprojecteudeka.data.local;
 
+import com.frogobox.finalprojecteudeka.models.CatDetail;
+
+import java.util.List;
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,5 +25,11 @@ package com.frogobox.finalprojecteudeka.data.local;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
+@Dao
 public interface CatDao {
+    @Query("SELECT * FROM cat")
+    List<CatDetail> getCats();
+
+    @Insert
+    void insertCatData(List<CatDetail> data);
 }
