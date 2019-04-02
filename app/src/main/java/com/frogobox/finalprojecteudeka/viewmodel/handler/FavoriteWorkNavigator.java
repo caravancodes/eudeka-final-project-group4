@@ -1,8 +1,4 @@
-package com.frogobox.finalprojecteudeka.viewmodel;
-
-import com.frogobox.finalprojecteudeka.model.Cat;
-
-import java.util.List;
+package com.frogobox.finalprojecteudeka.viewmodel.handler;
 
 /**
  * Created by Faisal Amir
@@ -21,9 +17,9 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface CatNavigator {
+public interface FavoriteWorkNavigator {
 
-    void loadCatList(List<Cat> listCat);
-    void errorLoadListCat(String message);
+    void onSuccessEdit(String message);
+    void onError(String message);
 
 }

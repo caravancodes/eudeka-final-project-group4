@@ -1,9 +1,11 @@
-package com.frogobox.finalprojecteudeka.viewmodel;
+package com.frogobox.finalprojecteudeka.viewmodel.handler;
 
 import android.content.Context;
 
 import com.frogobox.finalprojecteudeka.data.CatRepository;
+import com.frogobox.finalprojecteudeka.data.FavoriteDataSource;
 import com.frogobox.finalprojecteudeka.data.local.CatLocalDataSource;
+import com.frogobox.finalprojecteudeka.data.local.FavoriteLocalDataSource;
 import com.frogobox.finalprojecteudeka.data.remote.CatRemoteDataSource;
 
 /**
@@ -25,8 +27,12 @@ import com.frogobox.finalprojecteudeka.data.remote.CatRemoteDataSource;
  */
 public class Injection {
 
-    public static CatRepository provideTeamRepository(Context context){
+    public static CatRepository provideCatRepository(Context context){
         return new CatRepository(new CatLocalDataSource(context), new CatRemoteDataSource());
+    }
+
+    public static FavoriteLocalDataSource provideFavRepository(Context context) {
+        return new FavoriteLocalDataSource(context);
     }
 
 }

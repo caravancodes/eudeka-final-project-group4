@@ -2,7 +2,6 @@ package com.frogobox.finalprojecteudeka.data.local;
 
 import android.content.Context;
 
-import com.frogobox.finalprojecteudeka.data.CatDataSource;
 import com.frogobox.finalprojecteudeka.data.FavoriteDataSource;
 import com.frogobox.finalprojecteudeka.model.Cat;
 import com.frogobox.finalprojecteudeka.model.Favorite;
@@ -37,11 +36,22 @@ public class FavoriteLocalDataSource implements FavoriteDataSource {
         favoriteDao = CatDB.getInstance(context).favoriteDao();
     }
 
-    public void saveFavData(final List<Favorite> data) {
+    public void saveFavDataCat(final Cat data) {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                favoriteDao.insertFavData(data);
+                favoriteDao.insertFavDataCat(data);
+            }
+        };
+
+        new Thread(runnable).start();
+    }
+
+    public void saveFavDataFavorite(final Favorite data) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                favoriteDao.insertFavDataFavorite(data);
             }
         };
 
@@ -65,6 +75,22 @@ public class FavoriteLocalDataSource implements FavoriteDataSource {
         new Thread(runnable).start();
     }
 
+    @Override
+    public void getListOfFavoriteById(final FavoriteGetCallback callback, final String id) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                List<Favorite> listFav = favoriteDao.getFavoriteById(id);
+                if (listFav.isEmpty()) {
+                    callback.onDataNotAvailable("Data kucing di database kosong");
+                } else {
+                    callback.onCatDataLoaded(listFav);
+                }
+            }
+        };
+
+        new Thread(runnable).start();
+    }
 
     public void deleteFavData(final String id){
         Runnable runnable = new Runnable() {

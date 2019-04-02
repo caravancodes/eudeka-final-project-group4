@@ -1,7 +1,6 @@
-package com.frogobox.finalprojecteudeka.data;
+package com.frogobox.finalprojecteudeka.viewmodel.handler;
 
 import com.frogobox.finalprojecteudeka.model.Cat;
-import com.frogobox.finalprojecteudeka.model.Favorite;
 
 import java.util.List;
 
@@ -22,14 +21,9 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface FavoriteDataSource {
+public interface CatNavigator {
 
-    void getListOfFavorite(FavoriteGetCallback callback);
-    void getListOfFavoriteById(FavoriteGetCallback callback, String id);
-
-    interface FavoriteGetCallback {
-        void onCatDataLoaded(List<Favorite> data);
-        void onDataNotAvailable(String errorMessage);
-    }
+    void loadCatList(List<Cat> listCat);
+    void onError(String message);
 
 }

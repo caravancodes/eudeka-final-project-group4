@@ -30,8 +30,11 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "all_cat")
 public class Cat implements Parcelable {
 
-    @NonNull
-    @PrimaryKey(autoGenerate = false)
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "cat_id")
+    private int cat_id;
+
     @ColumnInfo(name = "id")
     @SerializedName("id")
     private String id;
@@ -60,7 +63,8 @@ public class Cat implements Parcelable {
     @SerializedName("intelligence")
     private int intelligence;
 
-    public Cat(String id, String name, String origin, String description, int affection_level, int child_friendly, int intelligence) {
+    public Cat(int cat_id, String id, String name, String origin, String description, int affection_level, int child_friendly, int intelligence) {
+        this.cat_id = cat_id;
         this.id = id;
         this.name = name;
         this.origin = origin;
@@ -70,32 +74,68 @@ public class Cat implements Parcelable {
         this.intelligence = intelligence;
     }
 
+    public int getCat_id() {
+        return cat_id;
+    }
+
+    public void setCat_id(int cat_id) {
+        this.cat_id = cat_id;
+    }
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getOrigin() {
         return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public int getAffection_level() {
         return affection_level;
+    }
+
+    public void setAffection_level(int affection_level) {
+        this.affection_level = affection_level;
     }
 
     public int getChild_friendly() {
         return child_friendly;
     }
 
+    public void setChild_friendly(int child_friendly) {
+        this.child_friendly = child_friendly;
+    }
+
     public int getIntelligence() {
         return intelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
     }
 
 
@@ -106,6 +146,7 @@ public class Cat implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.cat_id);
         dest.writeString(this.id);
         dest.writeString(this.name);
         dest.writeString(this.origin);
@@ -116,6 +157,7 @@ public class Cat implements Parcelable {
     }
 
     protected Cat(Parcel in) {
+        this.cat_id = in.readInt();
         this.id = in.readString();
         this.name = in.readString();
         this.origin = in.readString();

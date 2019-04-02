@@ -52,5 +52,7 @@
     <string name="title_notif">Notification</string>
     <string name="notification_on">Notification On</string>
     <string name="notification_off">Notification Off</string>
+    <string name="sucsess_insert">Berhasil menambahkan ke favorite</string>
+    <string name="sucsess_delete">Berhasil mengapus</string>
 
 </resources>

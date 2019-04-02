@@ -1,4 +1,4 @@
-package com.frogobox.finalprojecteudeka.viewmodel;
+package com.frogobox.finalprojecteudeka.viewmodel.handler;
 
 import com.frogobox.finalprojecteudeka.model.Cat;
 import com.frogobox.finalprojecteudeka.model.Favorite;
@@ -24,7 +24,7 @@ import java.util.List;
  */
 public interface FavoriteNavigator {
 
-    void loadCatList(List<Favorite> favorites);
-    void errorLoadListCat(String message);
+    void loadFav(List<Favorite> favorites);
+    void onError(String message);
 
 }

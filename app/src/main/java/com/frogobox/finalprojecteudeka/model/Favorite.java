@@ -53,8 +53,7 @@ public class Favorite implements Parcelable {
     @ColumnInfo(name = "intelligence")
     private int intelligence;
 
-    public Favorite(int fav_id, String id, String name, String origin, String description, int affection_level, int child_friendly, int intelligence) {
-        this.fav_id = fav_id;
+    public Favorite(String id, String name, String origin, String description, int affection_level, int child_friendly, int intelligence) {
         this.id = id;
         this.name = name;
         this.origin = origin;

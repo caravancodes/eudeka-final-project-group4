@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.frogobox.finalprojecteudeka.R;
 import com.frogobox.finalprojecteudeka.model.Cat;
+import com.frogobox.finalprojecteudeka.model.Favorite;
 import com.frogobox.finalprojecteudeka.views.activities.CatDetailActivity;
 
 import java.util.ArrayList;
@@ -36,13 +37,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FavoriteRecyclerViewAdapter extends RecyclerView.Adapter<FavoriteRecyclerViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Cat> data;
+    private ArrayList<Favorite> data;
 
     public FavoriteRecyclerViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Cat> data){
+    public void addItem(ArrayList<Favorite> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -73,7 +74,7 @@ public class FavoriteRecyclerViewAdapter extends RecyclerView.Adapter<FavoriteRe
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, CatDetailActivity.class);
-                Cat parcelCat = data.get(position);
+                Favorite parcelCat = data.get(position);
                 intentData.putExtra(CatDetailActivity.EXTRA_FAVORITE, parcelCat);
                 context.startActivity(intentData);
             }

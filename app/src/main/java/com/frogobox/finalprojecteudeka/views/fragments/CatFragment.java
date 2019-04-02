@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -15,9 +14,9 @@ import android.widget.Toast;
 
 import com.frogobox.finalprojecteudeka.R;
 import com.frogobox.finalprojecteudeka.model.Cat;
-import com.frogobox.finalprojecteudeka.viewmodel.CatNavigator;
+import com.frogobox.finalprojecteudeka.viewmodel.handler.CatNavigator;
 import com.frogobox.finalprojecteudeka.viewmodel.CatViewModel;
-import com.frogobox.finalprojecteudeka.viewmodel.Injection;
+import com.frogobox.finalprojecteudeka.viewmodel.handler.Injection;
 import com.frogobox.finalprojecteudeka.views.adapters.CatRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class CatFragment extends Fragment implements CatNavigator {
 
         recyclerView = rootView.findViewById(R.id.recyclerview);
         adapter = new CatRecyclerViewAdapter(getContext());
-        catViewModel = new CatViewModel(Injection.provideTeamRepository(getContext()), this);
+        catViewModel = new CatViewModel(Injection.provideCatRepository(getContext()), this);
         catViewModel.getListCat();
 
         return rootView;
@@ -63,7 +62,7 @@ public class CatFragment extends Fragment implements CatNavigator {
     }
 
     @Override
-    public void errorLoadListCat(String message) {
+    public void onError(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -3,6 +3,7 @@ package com.frogobox.finalprojecteudeka.viewmodel;
 import com.frogobox.finalprojecteudeka.data.CatDataSource;
 import com.frogobox.finalprojecteudeka.data.CatRepository;
 import com.frogobox.finalprojecteudeka.model.Cat;
+import com.frogobox.finalprojecteudeka.viewmodel.handler.CatNavigator;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class CatViewModel {
 
             @Override
             public void onDataNotAvailable(String errorMessage) {
-                catNavigator.errorLoadListCat(errorMessage);
+                catNavigator.onError(errorMessage);
             }
         });
 

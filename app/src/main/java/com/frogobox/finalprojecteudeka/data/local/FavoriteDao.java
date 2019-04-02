@@ -1,5 +1,7 @@
 package com.frogobox.finalprojecteudeka.data.local;
 
+import android.telecom.Call;
+
 import com.frogobox.finalprojecteudeka.model.Cat;
 import com.frogobox.finalprojecteudeka.model.Favorite;
 
@@ -34,9 +36,15 @@ public interface FavoriteDao {
     List<Favorite> getFavorite();
 
     @Insert
-    void insertFavData(List<Favorite> data);
+    void insertFavDataCat(Cat data);
+
+    @Insert
+    void insertFavDataFavorite(Favorite data);
 
     @Query("DELETE FROM all_fav WHERE id = :id")
     void deleteFavData(String id);
+
+    @Query("SELECT * FROM all_fav WHERE id = :id")
+    List<Favorite> getFavoriteById(String id);
 
 }
