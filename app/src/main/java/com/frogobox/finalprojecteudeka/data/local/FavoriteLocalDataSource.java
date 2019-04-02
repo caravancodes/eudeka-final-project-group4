@@ -65,7 +65,7 @@ public class FavoriteLocalDataSource implements FavoriteDataSource {
             public void run() {
                 List<Favorite> listFav = favoriteDao.getFavorite();
                 if (listFav.isEmpty()) {
-                    callback.onDataNotAvailable("Data kucing di database kosong");
+                    callback.onDataNotAvailable("Data kucing favorit di database kosong");
                 } else {
                     callback.onCatDataLoaded(listFav);
                 }
@@ -82,7 +82,7 @@ public class FavoriteLocalDataSource implements FavoriteDataSource {
             public void run() {
                 List<Favorite> listFav = favoriteDao.getFavoriteById(id);
                 if (listFav.isEmpty()) {
-                    callback.onDataNotAvailable("Data kucing di database kosong");
+                    callback.onDataNotAvailable("Data kucing favorit di database kosong");
                 } else {
                     callback.onCatDataLoaded(listFav);
                 }

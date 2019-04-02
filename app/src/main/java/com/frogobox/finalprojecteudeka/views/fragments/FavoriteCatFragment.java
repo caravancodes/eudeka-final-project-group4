@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,13 +64,25 @@ public class FavoriteCatFragment extends Fragment implements FavoriteNavigator {
         arrayList.clear();
         arrayList.addAll(favorites);
         adapter.addItem(arrayList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+        });
         recyclerView.setAdapter(adapter);
 
     }
 
     @Override
-    public void onError(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    public void onError(final String message) {
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }
